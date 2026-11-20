@@ -85,11 +85,11 @@ d = p.d
 # ---------------------------------------------------------------- masthead
 d.rectangle([0, 0, W, 90], fill=INK)
 p.text(W // 2, 8, "THE  WORLD  TODAY", font(SERIF_B, 44), (255, 255, 255), "ma")
-p.text(W // 2, 60, "Friday 20 November 2026  •  23 stories  •  6 continents  •  One page",
+p.text(W // 2, 60, "Friday 20 November 2026  •  17 stories  •  6 continents  •  One page",
        font(SANS_B, 15), (255, 210, 120), "ma")
 p.rule(24, W - 24, 100, RED, 4)
-p.text(24, 108, "DATE CHECK: Friday 20 November 2026 — every story on this page happened, "
-                 "or was first reported, on this day.",
+p.text(24, 108, "DATE CHECK: Friday 20 November 2026 — today's news, as reported today; "
+                 "earlier events are dated in the text.",
        font(SANS_B, 12), BLUE)
 p.rule(24, W - 24, 130, GREY, 1)
 
@@ -97,7 +97,7 @@ p.rule(24, W - 24, 130, GREY, 1)
 y = 140
 y = p.kicker(24, y, "1  WAR • UKRAINE")
 y = p.story(24, y, 640,
-            "RUSSIA HITS KYIV'S BRIDGES IN BIGGEST BARRAGE OF THE WAR",
+            "RUSSIA HITS KYIV'S BRIDGES IN THE WAR'S BIGGEST BRIDGE STRIKE",
             "Russian ballistic missiles struck three bridges over the Dnipro in Kyiv early "
             "on Friday — the biggest attack on the capital's crossings since the invasion "
             "began — killing three people in the city and injuring 15. Across Ukraine, "
@@ -110,11 +110,11 @@ rx = 688
 ry = 140
 ry = p.kicker(rx, ry, "2  MARKETS • ASIA")
 ry = p.story(rx, ry, 312,
-             "AI SELL-OFF: NIKKEI −4.8% TO SEVEN-MONTH LOW",
-             "Tokyo's Nikkei fell 4.8% on Friday as the AI trade unravelled: SoftBank "
-             "−14.6%, Kioxia −11.3%, Seoul −4.7% and Taiwan −6.8%. It followed "
-             "Anthropic's record $81.3bn Nasdaq debut — shares closed +17% at $97.17.",
-             hsize=18, bsize=13, max_body=5)
+             "AI SELL-OFF: NIKKEI −5.1% TO SEVEN-MONTH LOW",
+             "Tokyo's Nikkei fell 5.1% — its fifth-biggest drop ever — as the AI trade "
+             "unravelled: SoftBank −14.5%, Kioxia −11.7%, Seoul −5.2%, Taiwan −6.2%. "
+             "Anthropic's $81.3bn debut closed +17%.",
+             hsize=18, bsize=13, max_body=4)
 p.rule(rx, W - 24, 284, GREY, 1)
 ry = p.kicker(rx, 294, "3  WEATHER • INDIA")
 p.story(rx, ry, 312,
@@ -128,7 +128,7 @@ p.story(rx, ry, 312,
 # ---------------------------------------------------------------- map band
 my = 340
 d.rectangle([24, my, 664, my + 132], fill=MAP_BG, outline=BLUE, width=2)
-p.text(36, my + 8, "THE DAY ON THE MAP", font(SANS_B, 15), BLUE)
+p.text(36, my + 8, "THE DAY ON THE MAP (SCHEMATIC)", font(SANS_B, 15), BLUE)
 land_polys = [
     [(60, 398), (150, 378), (205, 390), (200, 420), (160, 448), (120, 436), (70, 428)],
     [(185, 436), (212, 432), (216, 452), (198, 466), (182, 450)],
@@ -158,20 +158,19 @@ ty = 494
 p.text(24, ty, "THE DAY IN UTC", font(SANS_B, 15), BLUE)
 timeline = [
     ("02:00", "Akvan crosses the Odisha coast"),
-    ("06:00", "Nikkei closes −4.8%, lowest since April"),
+    ("06:00", "Nikkei closes −5.1%, lowest since April"),
     ("07:57", "Kyiv toll confirmed: 3 dead, 15 hurt"),
+    ("11:00", "Youth marches at midday in Madrid & Barcelona"),
     ("11:13", "Riyadh confirms PIF Tower damage"),
-    ("DAY", "Italy strike; youth marches in 25+ nations"),
-    ("EVENING", "Shelton into the ATP Finals semis"),
 ]
 xx = 24
 for t, label in timeline:
     p.text(xx, ty + 22, t, font(SANS_B, 12), RED)
     ly = ty + 40
-    for ln in p.wrap(label, font(SANS, 11), 158):
+    for ln in p.wrap(label, font(SANS, 11), 185):
         p.text(xx, ly, ln, font(SANS, 11), (40, 40, 40))
         ly += 14
-    xx += 168
+    xx += 196
 p.rule(24, W - 24, ty + 70, GREY, 1)
 
 # ---------------------------------------------------------------- middle grid
@@ -190,11 +189,12 @@ grid = [
      "Students walked out in 25+ nations against living costs and rearmament — "
      "'Fight for our future, not their wars'. Italy's CGIL held a general strike; "
      "350+ British schools joined; 10,000 marched in Cologne."),
-    ("7  SPORT • TURIN", "SHELTON INTO ATP FINALS SEMIS",
-     "Ben Shelton beat Rafael Jodar 7-6(8), 7-5 in Turin to reach the last four, where "
-     "he meets Carlos Alcaraz. In Rawalpindi, Pakistan beat Sri Lanka by eight wickets "
-     "to seal the Test series 1-0."),
-    ("8  GAMES • LOS ANGELES", "GTA VI: 24.6M COPIES, $2.36BN IN A DAY",
+    ("7  SPORT • RAWALPINDI", "PAKISTAN SEAL TEST SERIES OVER SRI LANKA",
+     "Pakistan chased 90 to beat Sri Lanka by eight wickets in Rawalpindi and seal "
+     "the two-Test series 1-0. In Turin, Ben Shelton will face Carlos Alcaraz in "
+     "Saturday's ATP Finals semis after Zverev's win over Fils sent him through "
+     "on Thursday."),
+    ("8  GAMES • LOS ANGELES", "GTA VI: ~24.6M COPIES, ~$2.36BN IN A DAY",
      "The full first-day tally is in: GTA VI sold ~24.6m copies for ~$2.36bn "
      "(Sensor Tower), with 125m hours watched and a 7.91m peak across Twitch, "
      "YouTube and Kick — the biggest launch in streaming history."),
@@ -216,7 +216,7 @@ p.rule(24, W - 24, gy + 232, GREY, 1)
 # ---------------------------------------------------------------- markets strip
 my2 = gy + 242
 d.rectangle([24, my2, W - 24, my2 + 28], fill=INK)
-strip = ("MARKETS — Nikkei −4.8% · 56,595  |  KOSPI −4.7%  |  Taiwan −6.8%  |  "
+strip = ("MARKETS — Nikkei −5.1% · 56,437  |  KOSPI −5.2%  |  Taiwan −6.2%  |  "
          "S&P 500 −2.0% (Thu)  |  Nasdaq −2.3%  |  Brent $92.77  |  "
          "Gold <$3,590  |  Bitcoin ~$62,000")
 for sz in (12, 11, 10):
